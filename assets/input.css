@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@source "../index.html";
+@source "../script.js";
+
+@theme {
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { background: #0d0d10; background-image: radial-gradient(ellipse 70% 28% at 82% 0%, #25203255, transparent), radial-gradient(ellipse 50% 25% at 0% 64%, #18142255, transparent); }
+::selection { background: #b3a0ee; color: #0d0d10; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a, button { transition: color .2s, background-color .2s, border-color .2s, transform .2s; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 5px; border-radius: 3px; }
+.nav-link[aria-current="location"] { color: #c4b5fd; }
+.project-card:hover .project-preview { transform: translateY(-3px); }
+.project-preview { transition: transform .3s; }
+.project-card:hover { border-color: #7b679766; }
+.section-label { font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: #a7a0b2; }
+.tag { display: inline-block; border: 1px solid #ffffff12; border-radius: 4px; padding: 5px 9px; font-size: 10px; color: #a7a4b0; }
+.icon { width: 16px; height: 16px; flex-shrink: 0; }
+.status-dot { box-shadow: 0 0 9px #9ccb9460; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
