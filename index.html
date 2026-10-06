@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,11 @@
   <meta name="theme-color" content="#0d0d10">
   <title>Basit — Web Developer</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="assets/styles.css">
   <script src="script.js" defer></script>
 </head>
-<body class="font-mono text-[#e4e2e9] antialiased">
+<body id="top" class="font-mono text-[var(--text)] antialiased">
   <a href="#main" class="fixed left-4 top-4 z-50 -translate-y-24 rounded bg-violet-200 px-4 py-3 text-sm text-black focus:translate-y-0">Skip to content</a>
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true"><defs>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -20,47 +21,75 @@
     <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M15 8V4H4v11h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
   </defs></svg>
 
-  <header class="sticky top-0 z-30 border-b border-white/[.06] bg-[#0d0d10]/90 backdrop-blur-xl">
+  <header class="sticky top-0 z-30 border-b border-[var(--line)] bg-[var(--header)] backdrop-blur-xl">
     <div class="mx-auto flex h-20 max-w-[1100px] items-center justify-between px-6 sm:px-10">
-      <a href="#" aria-label="Basit, home" class="text-xl font-semibold tracking-tight"><span class="text-violet-300">[</span>sb<span class="text-violet-300">.]</span></a>
-      <nav aria-label="Main navigation" class="hidden items-center gap-7 text-[11px] text-[#97939f] md:flex">
-        <a class="nav-link hover:text-white" href="#about">About</a><a class="nav-link hover:text-white" href="#work">Work</a><a class="nav-link hover:text-white" href="#experience">Experience</a><a class="nav-link hover:text-white" href="#contact">Contact</a>
+      <a href="#top" aria-label="Basit, home" class="text-xl font-semibold tracking-tight"><span class="text-[var(--accent)]">[</span>sb<span class="text-[var(--accent)]">.]</span></a>
+      <nav aria-label="Main navigation" class="hidden items-center gap-7 text-[11px] text-[var(--muted)] md:flex">
+        <a class="nav-link hover:text-[var(--text)]" href="#about">About</a><a class="nav-link hover:text-[var(--text)]" href="#work">Work</a><a class="nav-link hover:text-[var(--text)]" href="#experience">Experience</a><a class="nav-link hover:text-[var(--text)]" href="#contact">Contact</a>
       </nav>
-      <div class="flex items-center gap-4">
-        <a href="assets/Sheikh_Abdul_Basit_Resume.pdf" download class="flex items-center gap-2 rounded border border-white/15 px-3 py-2 text-[11px] text-[#c9c5d2] hover:border-violet-300/50 hover:text-violet-200">Resume <svg class="icon" aria-hidden="true"><use href="#download"/></svg></a>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+          <button type="button" data-theme-choice="light" aria-label="Light theme" aria-pressed="false" title="Light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+          <button type="button" data-theme-choice="dark" aria-label="Dark theme" aria-pressed="false" title="Dark theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 13A9 9 0 0 1 11 3.5 9 9 0 1 0 20.5 13Z"/></svg></button>
+          <button type="button" data-theme-choice="system" aria-label="System theme" aria-pressed="false" title="System theme"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></button>
+        </div>
+        <a href="assets/Sheikh_Abdul_Basit_Resume.pdf" download class="flex items-center gap-2 rounded border border-[var(--line)] px-3 py-2 text-[11px] text-[var(--secondary)] hover:border-violet-300/50 hover:text-[var(--accent-hover)]">Resume <svg class="icon" aria-hidden="true"><use href="#download"/></svg></a>
         <button id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" class="flex h-9 w-9 flex-col items-center justify-center gap-[5px] md:hidden"><span class="h-px w-5 bg-current"></span><span class="h-px w-5 bg-current"></span></button>
       </div>
     </div>
-    <nav id="mobile-nav" aria-label="Mobile navigation" hidden class="border-t border-white/10 px-6 py-5 text-sm md:hidden"><div class="flex flex-wrap gap-6"><a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></nav>
+    <nav id="mobile-nav" aria-label="Mobile navigation" hidden class="border-t border-[var(--line)] px-6 py-5 text-sm md:hidden"><div class="flex flex-wrap gap-6"><a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div></nav>
   </header>
 
   <main id="main" class="mx-auto max-w-[1100px] px-6 sm:px-10">
     <section class="pb-16 pt-16 sm:pb-20 sm:pt-24" aria-labelledby="hero-title">
-      <div class="mb-9 inline-flex items-center gap-2 rounded-full border border-[#9ccb94]/15 bg-[#9ccb94]/[.035] px-3 py-1.5 text-[10px] text-[#a7bea2]"><span class="status-dot h-1.5 w-1.5 rounded-full bg-[#9ccb94]"></span>Open to internships & opportunities</div>
-      <p class="mb-5 text-[12px] text-[#aca5b7]">Hello, world. I'm Basit<span class="text-violet-300">_</span></p>
-      <h1 id="hero-title" class="max-w-[900px] text-[clamp(34px,5.1vw,60px)] font-medium leading-[1.22] tracking-[-.065em]">Thoughtful code.<br><span class="text-[#ada0c7]">Useful experiences.</span></h1>
-      <div class="mt-7 flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
-        <p class="max-w-[530px] text-[12px] leading-[1.95] text-[#97939f]">I'm Sheikh Abdul Basit, a web developer turning ideas into<br class="hidden lg:block"> intuitive interfaces. Exploring the intersection of the web,<br class="hidden lg:block"> data, and a little artificial intelligence.</p>
-        <p class="flex items-center gap-2 text-[10px] text-[#77717e]"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Jamshedpur, India <span class="mx-1 text-[#38343f]">/</span> IST</p>
+      <div class="hero-layout">
+      <div>
+      <div class="mb-9 inline-flex items-center gap-2 rounded-full border border-[#9ccb94]/15 bg-[#9ccb94]/[.035] px-3 py-1.5 text-[10px] text-[var(--status)]"><span class="status-dot h-1.5 w-1.5 rounded-full bg-[#9ccb94]"></span>Open to internships & opportunities</div>
+      <p class="mb-5 text-[12px] text-[var(--secondary)]">Hello, world. I'm Basit<span class="text-[var(--accent)]">_</span></p>
+      <h1 id="hero-title" class="max-w-[900px] text-[clamp(34px,5.1vw,60px)] font-medium leading-[1.22] tracking-[-.065em]">Thoughtful code.<br><span class="text-[var(--accent)]">Useful experiences.</span></h1>
+      <div class="mt-7 flex flex-col justify-between gap-5">
+        <p class="max-w-[530px] text-[12px] leading-[1.95] text-[var(--muted)]">I'm Sheikh Abdul Basit, a web developer turning ideas into<br class="hidden lg:block"> intuitive interfaces. Exploring the intersection of the web,<br class="hidden lg:block"> data, and a little artificial intelligence.</p>
+        <p class="flex items-center gap-2 text-[10px] text-[var(--subtle)]"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Jamshedpur, India <span class="mx-1 text-[var(--line)]">/</span> IST</p>
       </div>
       <div class="mt-8 flex flex-wrap items-center gap-6">
         <a href="#work" class="inline-flex items-center gap-4 rounded bg-[#c3b4e2] px-5 py-3 text-[11px] font-semibold text-[#19131f] hover:bg-violet-200">Explore my work <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a href="https://github.com/basitsheikhabdul" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[11px] text-[#aaa4b3] hover:text-white"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub <svg class="h-3 w-3" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a href="https://www.linkedin.com/in/basitsheikhabdul/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[11px] text-[#aaa4b3] hover:text-white"><span class="font-bold">in</span>LinkedIn <svg class="h-3 w-3" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a href="https://github.com/basitsheikhabdul" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[11px] text-[var(--secondary)] hover:text-[var(--text)]"><svg class="icon" aria-hidden="true"><use href="#github"/></svg>GitHub <svg class="h-3 w-3" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a href="https://www.linkedin.com/in/basitsheikhabdul/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[11px] text-[var(--secondary)] hover:text-[var(--text)]"><span class="font-bold">in</span>LinkedIn <svg class="h-3 w-3" aria-hidden="true"><use href="#arrow"/></svg></a>
+      </div>
+      </div>
+      <aside class="ascii-card" aria-labelledby="profile-title">
+        <div class="ascii-toolbar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>basit.profile</span><span aria-hidden="true">⌘</span></div>
+        <pre class="ascii-portrait" aria-hidden="true">
+        .-""""-.
+       /  .--.  \
+      /  /    \  \
+      |  [o][o]  |
+      |     &gt;    |
+       \  \__/  /
+        '-.__.-'
+        __|  |__
+     .-'  \/  '-.
+    /  /|    |\  \
+   /__/ | &lt;/&gt;| \__\
+        |____|
+        </pre>
+        <div class="ascii-details"><h2 id="profile-title">Sheikh Abdul Basit<span class="text-[var(--accent)]">_</span></h2><p>web developer / curious human</p><dl><div><dt>based in</dt><dd>Jamshedpur, IN</dd></div><div><dt>focus</dt><dd>web + AI</dd></div><div><dt>status</dt><dd class="text-[var(--status)]">open to work</dd></div></dl></div>
+        <p class="ascii-prompt"><span aria-hidden="true">&gt;</span> learning by building<span class="text-[var(--accent)]">.</span></p>
+      </aside>
       </div>
     </section>
 
-    <section id="about" aria-labelledby="about-title" class="grid gap-8 border-t border-white/[.08] py-12 md:grid-cols-[1fr_2.2fr] md:gap-16">
-      <div><p class="section-label"><span class="mr-3 text-[#655b78]">01 /</span> A little about me</p><h2 id="about-title" class="mt-4 text-lg tracking-tight">Always a work<br>in progress.</h2></div>
-      <div><p class="text-[12px] leading-[1.95] text-[#97939f]">A BCA student at Arka Jain University with a curiosity for how things work. I enjoy building clean, responsive websites and exploring how AI can make everyday tools more useful.</p><p class="mt-3 text-[12px] leading-[1.95] text-[#97939f]">From querying production data at Tata Steel to crafting an e-commerce experience at ShadowFox, I learn best by building. Currently growing my front-end and full-stack skills, one project at a time.</p>
+    <section id="about" aria-labelledby="about-title" class="grid gap-8 border-t border-[var(--line)] py-12 md:grid-cols-[1fr_2.2fr] md:gap-16">
+      <div><p class="section-label"><span class="mr-3 text-[var(--subtle)]">01 /</span> A little about me</p><h2 id="about-title" class="mt-4 text-lg tracking-tight">Always a work<br>in progress.</h2></div>
+      <div><p class="text-[12px] leading-[1.95] text-[var(--muted)]">A BCA student at Arka Jain University with a curiosity for how things work. I enjoy building clean, responsive websites and exploring how AI can make everyday tools more useful.</p><p class="mt-3 text-[12px] leading-[1.95] text-[var(--muted)]">From querying production data at Tata Steel to crafting an e-commerce experience at ShadowFox, I learn best by building. Currently growing my front-end and full-stack skills, one project at a time.</p>
         <div class="mt-6 flex flex-wrap gap-2" aria-label="Technical skills"><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">HTML & CSS</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Streamlit</span><span class="tag">LangChain</span></div>
       </div>
     </section>
 
-    <section id="work" aria-labelledby="work-title" class="border-t border-white/[.08] py-12 sm:py-16">
-      <div class="mb-8 flex items-end justify-between gap-4"><div><p class="section-label"><span class="mr-3 text-[#655b78]">02 /</span> Selected work</p><h2 id="work-title" class="mt-4 text-2xl tracking-[-.04em]">Ideas, made real<span class="text-violet-300">.</span></h2></div><span class="hidden text-[10px] text-[#68616f] sm:block">A few things I've built ↙</span></div>
+    <section id="work" aria-labelledby="work-title" class="border-t border-[var(--line)] py-12 sm:py-16">
+      <div class="mb-8 flex items-end justify-between gap-4"><div><p class="section-label"><span class="mr-3 text-[var(--subtle)]">02 /</span> Selected work</p><h2 id="work-title" class="mt-4 text-2xl tracking-[-.04em]">Ideas, made real<span class="text-[var(--accent)]">.</span></h2></div><span class="hidden text-[10px] text-[var(--subtle)] sm:block">A few things I've built ↙</span></div>
       <div class="grid gap-5 md:grid-cols-2">
-        <article class="project-card overflow-hidden rounded-lg border border-white/10 bg-[#141317]/70">
+        <article class="project-card overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--surface)]">
           <div class="relative flex h-[225px] items-center justify-center overflow-hidden border-b border-white/[.07] bg-[radial-gradient(ellipse_at_center,#34264455,transparent_75%)] px-7 pt-6" aria-hidden="true">
             <div class="project-preview w-full max-w-[350px] rounded-t-lg border border-white/10 bg-[#141218] p-4 shadow-2xl">
               <div class="mb-4 flex items-center justify-between border-b border-white/[.06] pb-3"><span class="text-[11px] text-[#d7cee8]"><span class="text-violet-300">✳</span> DataChat<span class="ml-1 text-[8px] text-[#797083]">/ workspace</span></span><span class="h-1.5 w-1.5 rounded-full bg-[#9ccb94]"></span></div>
@@ -69,9 +98,9 @@
               <div class="mt-2 rounded border border-violet-300/10 bg-violet-300/[.025] px-3 pt-2"><div class="flex justify-between text-[7px] text-[#7e758b]"><span>Production overview</span><span>7 days</span></div><svg viewBox="0 0 300 55" class="mt-2 h-12 w-full"><defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#bba2df" stop-opacity=".22"/><stop offset="1" stop-color="#bba2df" stop-opacity="0"/></linearGradient></defs><path d="M0 42 40 35 82 39 122 20 166 25 205 10 249 16 300 2V55H0Z" fill="url(#chart-fill)"/><path d="M0 42 40 35 82 39 122 20 166 25 205 10 249 16 300 2" fill="none" stroke="#bba2df" stroke-width="1.5"/></svg></div>
             </div>
           </div>
-          <div class="p-6"><div class="mb-3 flex items-center justify-between"><p class="text-[9px] uppercase tracking-widest text-[#867491]">AI / Data exploration</p><span class="text-[10px] text-[#635b6d]">01</span></div><h3 class="text-lg tracking-tight">DataChatApp</h3><p class="mt-3 min-h-[65px] text-[11px] leading-[1.9] text-[#97909f]">A conversational way to explore production data. Ask in plain English and get relevant, real-time insights through an intuitive chatbot interface.</p><div class="mt-5 flex flex-wrap gap-2"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">LangChain</span><span class="tag">OpenAI</span></div><div class="mt-6 flex gap-5 border-t border-white/[.07] pt-5 text-[10px]"><a href="https://datachatapp.streamlit.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#c5b6df] hover:text-violet-200">View project <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a href="https://github.com/basitsheikhabdul/DataChatApp" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#96909e] hover:text-white"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#github"/></svg>Source code</a></div></div>
+          <div class="p-6"><div class="mb-3 flex items-center justify-between"><p class="text-[9px] uppercase tracking-widest text-[var(--accent)]">AI / Data exploration</p><span class="text-[10px] text-[var(--subtle)]">01</span></div><h3 class="text-lg tracking-tight">DataChatApp</h3><p class="mt-3 min-h-[65px] text-[11px] leading-[1.9] text-[var(--muted)]">A conversational way to explore production data. Ask in plain English and get relevant, real-time insights through an intuitive chatbot interface.</p><div class="mt-5 flex flex-wrap gap-2"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">LangChain</span><span class="tag">OpenAI</span></div><div class="mt-6 flex gap-5 border-t border-[var(--line)] pt-5 text-[10px]"><a href="https://datachatapp.streamlit.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)]">View project <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a href="https://github.com/basitsheikhabdul/DataChatApp" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[var(--muted)] hover:text-[var(--text)]"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#github"/></svg>Source code</a></div></div>
         </article>
-        <article class="project-card overflow-hidden rounded-lg border border-white/10 bg-[#141317]/70">
+        <article class="project-card overflow-hidden rounded-lg border border-[var(--line)] bg-[var(--surface)]">
           <div class="relative flex h-[225px] items-center justify-center overflow-hidden border-b border-white/[.07] bg-[radial-gradient(ellipse_at_center,#28332f55,transparent_75%)] px-7 pt-6" aria-hidden="true">
             <div class="project-preview w-full max-w-[350px] rounded-t-lg border border-white/10 bg-[#151916] p-4 shadow-2xl"><div class="mb-4 flex items-center justify-between border-b border-white/[.06] pb-3"><span class="text-[12px] font-semibold tracking-[-.06em] text-[#cbd5cb]">shop<span class="font-normal text-[#8b9c8d]">lane.</span></span><div class="flex gap-3 text-[7px] text-[#859187]"><span>Discover</span><span>Collection</span><span>Bag (2)</span></div></div><div class="mb-3 flex items-center justify-between"><span class="text-[9px] text-[#c4cec3]">Everyday essentials.</span><span class="text-[7px] text-[#7d8b7f]">Curated for you ↗</span></div><div class="grid grid-cols-3 gap-2">
               <div><div class="flex h-[85px] items-center justify-center rounded bg-[#a7b9a4]/[.075]"><svg width="49" height="62" viewBox="0 0 70 80" fill="none"><path d="m21 11-17 9 8 18 10-5v39h28V33l10 5 8-18-17-9c-8 10-22 10-30 0Z" fill="#8a9b87"/><path d="M23 11c4 12 22 12 27 0" stroke="#50614f" stroke-width="2"/></svg></div><p class="mt-2 text-[7px] text-[#a0aea0]">The everyday tee</p><p class="mt-1 text-[6px] text-[#677669]">Clothing / Essentials</p></div>
@@ -79,36 +108,54 @@
               <div><div class="flex h-[85px] items-center justify-center rounded bg-[#95aaa4]/[.075]"><svg width="54" height="52" viewBox="0 0 70 60" fill="none"><path d="M12 35v-9a23 23 0 0 1 46 0v9" stroke="#859d92" stroke-width="6"/><rect x="6" y="28" width="13" height="23" rx="6" fill="#a0b5a8"/><rect x="51" y="28" width="13" height="23" rx="6" fill="#a0b5a8"/></svg></div><p class="mt-2 text-[7px] text-[#a0aea0]">Your daily soundtrack</p><p class="mt-1 text-[6px] text-[#677669]">Electronics / Audio</p></div>
             </div></div>
           </div>
-          <div class="p-6"><div class="mb-3 flex items-center justify-between"><p class="text-[9px] uppercase tracking-widest text-[#7f9384]">Web / E-commerce</p><span class="text-[10px] text-[#635b6d]">02</span></div><h3 class="text-lg tracking-tight">Shoplane</h3><p class="mt-3 min-h-[65px] text-[11px] leading-[1.9] text-[#97909f]">A responsive shopping experience with product listings, category pages, and a functional cart. Built with a focus on clean design and effortless navigation.</p><div class="mt-5 flex flex-wrap gap-2"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div><div class="mt-6 flex gap-5 border-t border-white/[.07] pt-5 text-[10px]"><a href="https://shoplane-sheikh.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#c5b6df] hover:text-violet-200">View project <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a href="https://github.com/basitsheikhabdul/ShadowFox-intermediate_Project" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#96909e] hover:text-white"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#github"/></svg>Source code</a></div></div>
+          <div class="p-6"><div class="mb-3 flex items-center justify-between"><p class="text-[9px] uppercase tracking-widest text-[var(--status)]">Web / E-commerce</p><span class="text-[10px] text-[var(--subtle)]">02</span></div><h3 class="text-lg tracking-tight">Shoplane</h3><p class="mt-3 min-h-[65px] text-[11px] leading-[1.9] text-[var(--muted)]">A responsive shopping experience with product listings, category pages, and a functional cart. Built with a focus on clean design and effortless navigation.</p><div class="mt-5 flex flex-wrap gap-2"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div><div class="mt-6 flex gap-5 border-t border-[var(--line)] pt-5 text-[10px]"><a href="https://shoplane-sheikh.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-hover)]">View project <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a href="https://github.com/basitsheikhabdul/ShadowFox-intermediate_Project" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[var(--muted)] hover:text-[var(--text)]"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#github"/></svg>Source code</a></div></div>
         </article>
       </div>
-      <p class="mt-4 text-right text-[9px] text-[#726a7b]">Interface illustrations · explore the live projects above</p>
+      <p class="mt-4 text-right text-[9px] text-[var(--subtle)]">Interface illustrations · explore the live projects above</p>
     </section>
 
-    <section id="experience" aria-labelledby="experience-title" class="grid gap-8 border-t border-white/[.08] py-12 md:grid-cols-[1fr_2.2fr] md:gap-16 sm:py-16">
-      <div><p class="section-label"><span class="mr-3 text-[#655b78]">03 /</span> Experience</p><h2 id="experience-title" class="mt-4 text-lg tracking-tight">Learning in<br>the real world.</h2></div>
+    <section id="experience" aria-labelledby="experience-title" class="grid gap-8 border-t border-[var(--line)] py-12 md:grid-cols-[1fr_2.2fr] md:gap-16 sm:py-16">
+      <div><p class="section-label"><span class="mr-3 text-[var(--subtle)]">03 /</span> Experience</p><h2 id="experience-title" class="mt-4 text-lg tracking-tight">Learning in<br>the real world.</h2></div>
       <div class="space-y-8">
-        <article class="relative border-l border-white/10 pl-6"><span class="absolute -left-[4px] top-1.5 h-[7px] w-[7px] rounded-full bg-[#b4a0cc]"></span><div class="flex flex-wrap items-center justify-between gap-2"><h3 class="text-sm">Tata Steel <span class="ml-2 text-[10px] text-[#83798f]">/ Intern</span></h3><p class="text-[9px] text-[#83798f]">Jun — Jul 2025</p></div><p class="mt-3 text-[11px] leading-[1.9] text-[#97909f]">Built a Streamlit application with LangChain and OpenAI to query production data in natural language. Delivered a conversational interface with real-time data access.</p></article>
-        <article class="relative border-l border-white/10 pl-6"><span class="absolute -left-[4px] top-1.5 h-[7px] w-[7px] rounded-full bg-[#696071]"></span><div class="flex flex-wrap items-center justify-between gap-2"><h3 class="text-sm">ShadowFox <span class="ml-2 text-[10px] text-[#83798f]">/ Intern</span></h3><p class="text-[9px] text-[#83798f]">Jul — Aug 2025</p></div><p class="mt-3 text-[11px] leading-[1.9] text-[#97909f]">Developed a responsive e-commerce website with dynamic product pages and cart functionality. Focused on a clean, mobile-friendly interface and smooth navigation.</p></article>
+        <article class="relative border-l border-[var(--line)] pl-6"><span class="absolute -left-[4px] top-1.5 h-[7px] w-[7px] rounded-full bg-[#b4a0cc]"></span><div class="flex flex-wrap items-center justify-between gap-2"><h3 class="text-sm">Tata Steel <span class="ml-2 text-[10px] text-[var(--subtle)]">/ Intern</span></h3><p class="text-[9px] text-[var(--subtle)]">Jun — Jul 2025</p></div><p class="mt-3 text-[11px] leading-[1.9] text-[var(--muted)]">Built a Streamlit application with LangChain and OpenAI to query production data in natural language. Delivered a conversational interface with real-time data access.</p></article>
+        <article class="relative border-l border-[var(--line)] pl-6"><span class="absolute -left-[4px] top-1.5 h-[7px] w-[7px] rounded-full bg-[#696071]"></span><div class="flex flex-wrap items-center justify-between gap-2"><h3 class="text-sm">ShadowFox <span class="ml-2 text-[10px] text-[var(--subtle)]">/ Intern</span></h3><p class="text-[9px] text-[var(--subtle)]">Jul — Aug 2025</p></div><p class="mt-3 text-[11px] leading-[1.9] text-[var(--muted)]">Developed a responsive e-commerce website with dynamic product pages and cart functionality. Focused on a clean, mobile-friendly interface and smooth navigation.</p></article>
       </div>
     </section>
 
-    <section aria-labelledby="education-title" class="grid gap-8 border-t border-white/[.08] py-12 md:grid-cols-[1fr_2.2fr] md:gap-16">
-      <div><p class="section-label"><span class="mr-3 text-[#655b78]">04 /</span> Beyond the code</p><h2 id="education-title" class="mt-4 text-lg tracking-tight">A curious mind.</h2></div>
-      <div><div class="flex flex-wrap justify-between gap-3"><div><h3 class="text-sm">Bachelor of Computer Applications</h3><p class="mt-2 text-[11px] text-[#97909f]">Arka Jain University <span class="mx-1 text-[#49414f]">·</span> 2023 — 2026</p></div><span class="h-fit rounded border border-violet-300/15 bg-violet-300/[.035] px-3 py-2 text-[10px] text-[#baa9d0]">8.80 GPA</span></div>
-        <p class="mb-3 mt-8 text-[9px] uppercase tracking-widest text-[#766d82]">Certifications & learning</p>
-        <a href="https://coursera.org/share/bd5760fb664fb92d284112abec93ec3b" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 border-b border-white/[.06] py-3"><div><p class="text-[11px] text-[#aca4b6] group-hover:text-violet-200">Machine Learning <span class="text-[#6f667b]">/ IBM</span></p><p class="mt-1 text-[9px] text-[#766d82]">July 2025</p></div><svg class="icon text-[#766d82]" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a href="https://drive.google.com/file/d/12-QkHYOqutjmgAvyr2Zs1VzidcgKeWTQ/view" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 border-b border-white/[.06] py-3"><div><p class="text-[11px] text-[#aca4b6] group-hover:text-violet-200">National-level hackathon <span class="text-[#6f667b]">/ CyberReportShield</span></p><p class="mt-1 text-[9px] text-[#766d82]">FIR filing & tracking system · April 2025</p></div><svg class="icon text-[#766d82]" aria-hidden="true"><use href="#arrow"/></svg></a>
-        <a href="https://coursera.org/share/015579eed4f5e22fd633ee12fbe19857" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 py-3"><div><p class="text-[11px] text-[#aca4b6] group-hover:text-violet-200">Introduction to Programming the IoT</p><p class="mt-1 text-[9px] text-[#766d82]">University of California · February 2025</p></div><svg class="icon text-[#766d82]" aria-hidden="true"><use href="#arrow"/></svg></a>
+    <section aria-labelledby="education-title" class="grid gap-8 border-t border-[var(--line)] py-12 md:grid-cols-[1fr_2.2fr] md:gap-16">
+      <div><p class="section-label"><span class="mr-3 text-[var(--subtle)]">04 /</span> Beyond the code</p><h2 id="education-title" class="mt-4 text-lg tracking-tight">A curious mind.</h2></div>
+      <div><div class="flex flex-wrap justify-between gap-3"><div><h3 class="text-sm">Bachelor of Computer Applications</h3><p class="mt-2 text-[11px] text-[var(--muted)]">Arka Jain University <span class="mx-1 text-[var(--subtle)]">·</span> 2023 — 2026</p></div><span class="h-fit rounded border border-violet-300/15 bg-[var(--accent-soft)] px-3 py-2 text-[10px] text-[var(--accent)]">8.80 GPA</span></div>
+        <p class="mb-3 mt-8 text-[9px] uppercase tracking-widest text-[var(--subtle)]">Certifications & learning</p>
+        <a href="https://coursera.org/share/bd5760fb664fb92d284112abec93ec3b" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 border-b border-[var(--line)] py-3"><div><p class="text-[11px] text-[var(--secondary)] group-hover:text-[var(--accent-hover)]">Machine Learning <span class="text-[var(--subtle)]">/ IBM</span></p><p class="mt-1 text-[9px] text-[var(--subtle)]">July 2025</p></div><svg class="icon text-[var(--subtle)]" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a href="https://drive.google.com/file/d/12-QkHYOqutjmgAvyr2Zs1VzidcgKeWTQ/view" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 border-b border-[var(--line)] py-3"><div><p class="text-[11px] text-[var(--secondary)] group-hover:text-[var(--accent-hover)]">National-level hackathon <span class="text-[var(--subtle)]">/ CyberReportShield</span></p><p class="mt-1 text-[9px] text-[var(--subtle)]">FIR filing & tracking system · April 2025</p></div><svg class="icon text-[var(--subtle)]" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a href="https://coursera.org/share/015579eed4f5e22fd633ee12fbe19857" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 py-3"><div><p class="text-[11px] text-[var(--secondary)] group-hover:text-[var(--accent-hover)]">Introduction to Programming the IoT</p><p class="mt-1 text-[9px] text-[var(--subtle)]">University of California · February 2025</p></div><svg class="icon text-[var(--subtle)]" aria-hidden="true"><use href="#arrow"/></svg></a>
       </div>
     </section>
 
-    <section id="contact" aria-labelledby="contact-title" class="relative mb-12 overflow-hidden rounded-lg border border-violet-300/15 bg-[radial-gradient(ellipse_at_top_right,#34263c66,transparent_80%)] px-6 py-10 sm:px-10 sm:py-12">
-      <p class="section-label"><span class="mr-3 text-[#655b78]">05 /</span> Say hello</p>
-      <div class="mt-5 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><h2 id="contact-title" class="text-[clamp(24px,3.5vw,34px)] leading-snug tracking-[-.055em]">Good things start<br>with a conversation<span class="text-violet-300">.</span></h2><p class="mt-4 max-w-md text-[11px] leading-[1.9] text-[#97909f]">Have a project in mind, an opportunity to share,<br class="hidden sm:block"> or just want to talk tech? My inbox is open.</p></div><a href="mailto:skabdulbasittt@gmail.com" class="flex w-fit items-center gap-4 rounded bg-[#c3b4e2] px-5 py-3 text-[11px] font-semibold text-[#19131f] hover:bg-violet-200">Let's talk <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
-      <div class="mt-8 flex flex-wrap items-center gap-2 border-t border-white/[.07] pt-5"><svg class="icon text-[#82758e]" aria-hidden="true"><use href="#mail"/></svg><a href="mailto:skabdulbasittt@gmail.com" class="break-all text-[11px] text-[#b0a2c0] hover:text-violet-200">skabdulbasittt@gmail.com</a><button id="copy-email" class="ml-1 rounded p-2 text-[#82758e] hover:bg-white/5 hover:text-violet-200" aria-label="Copy email address"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#copy"/></svg></button><span id="copy-status" role="status" class="text-[10px] text-[#b0c4a9]"></span></div>
+    <section id="contact" aria-labelledby="contact-title" class="relative mb-12 overflow-hidden rounded-lg border border-violet-300/15 contact-panel px-6 py-10 sm:px-10 sm:py-12">
+      <p class="section-label"><span class="mr-3 text-[var(--subtle)]">05 /</span> Say hello</p>
+      <div class="mt-5 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><h2 id="contact-title" class="text-[clamp(24px,3.5vw,34px)] leading-snug tracking-[-.055em]">Good things start<br>with a conversation<span class="text-[var(--accent)]">.</span></h2><p class="mt-4 max-w-md text-[11px] leading-[1.9] text-[var(--muted)]">Have a project in mind, an opportunity to share,<br class="hidden sm:block"> or just want to talk tech? My inbox is open.</p></div><a href="mailto:skabdulbasittt@gmail.com" class="flex w-fit items-center gap-4 rounded bg-[#c3b4e2] px-5 py-3 text-[11px] font-semibold text-[#19131f] hover:bg-violet-200">Let's talk <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      <div class="mt-8 flex flex-wrap items-center gap-2 border-t border-[var(--line)] pt-5"><svg class="icon text-[var(--subtle)]" aria-hidden="true"><use href="#mail"/></svg><a href="mailto:skabdulbasittt@gmail.com" class="break-all text-[11px] text-[var(--accent)] hover:text-[var(--accent-hover)]">skabdulbasittt@gmail.com</a><button id="copy-email" class="ml-1 rounded p-2 text-[var(--subtle)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent-hover)]" aria-label="Copy email address"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#copy"/></svg></button><span id="copy-status" role="status" class="text-[10px] text-[var(--status)]"></span></div>
     </section>
   </main>
-  <footer class="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 border-t border-white/[.07] px-6 py-7 text-[9px] text-[#756d7f] sm:px-10"><p>© <span id="year">2026</span> Sheikh Abdul Basit</p><p>Made with care <span class="px-2 text-[#443b50]">/</span> Always learning<span class="text-violet-300">_</span></p><a href="#" class="flex items-center gap-2 hover:text-violet-200">Back to top ↑</a></footer>
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-top mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 px-6 py-7 text-[10px] sm:px-10">
+      <p>© <span id="year">2026</span> Sheikh Abdul Basit</p>
+      <a href="#top" class="flex items-center gap-2 hover:text-[var(--accent)]">Back to top ↑</a>
+    </div>
+    <div class="footer-landscape">
+      <p class="footer-wordmark" aria-hidden="true">basit<span>.</span></p>
+      <svg class="footer-clouds" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <defs>
+          <filter id="cloud-texture" x="-15%" y="-35%" width="130%" height="170%"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="7" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="42"/><feGaussianBlur stdDeviation="5"/></filter>
+          <linearGradient id="cloud-back" x1="0" y1="0" x2="0" y2="1"><stop class="cloud-back-top"/><stop offset="1" class="cloud-back-bottom"/></linearGradient>
+          <linearGradient id="cloud-front" x1="0" y1="0" x2="0" y2="1"><stop class="cloud-front-top"/><stop offset="1" class="cloud-front-bottom"/></linearGradient>
+        </defs>
+        <g filter="url(#cloud-texture)" fill="url(#cloud-back)"><path d="M-80 360V218Q-20 155 80 207Q110 116 217 157Q285 105 364 183Q424 120 505 158Q565 65 665 151Q739 105 795 156Q830 73 916 134Q1010 86 1081 173Q1143 105 1214 166Q1295 111 1360 191Q1430 131 1520 194V360Z"/></g>
+        <g filter="url(#cloud-texture)" fill="url(#cloud-front)"><path d="M-80 400V290Q-15 211 64 263Q114 197 195 251Q220 171 321 236Q364 201 414 253Q488 182 553 239Q588 169 667 222Q735 173 803 242Q859 197 928 251Q1000 152 1080 240Q1152 188 1229 268Q1280 198 1350 261Q1417 217 1520 270V400Z"/></g>
+      </svg>
+      <div class="footer-quote"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><blockquote>“Dedicate your heart.”</blockquote><p>A little heart in everything I build.</p></div>
+    </div>
+  </footer>
 </body>
 </html>
